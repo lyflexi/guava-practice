@@ -61,7 +61,7 @@ public class ImmutableSamples {
 
 
     /**
-     * 不可变集合不支持元素修改操作：modifyException
+     * 不可变集合不支持元素修改操作：modifyException，也就是说，guava的不可变与jdk的final关键字逻辑是相反的！
      */
     private static void modifyException (){
         ImmutableSet<String> immutableSet = ImmutableSet.of("a", "b", "c");
@@ -71,7 +71,7 @@ public class ImmutableSamples {
 
 
     /**
-     * 不可变集合支持改变引用：referenceChange
+     * 不可变集合支持改变引用：referenceChange，也就是说，guava的不可变与jdk的final关键字逻辑是相反的！
      */
     private static void referenceChange (){
         System.out.println("---begin:immutableSet1");
