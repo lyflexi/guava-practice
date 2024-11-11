@@ -11,7 +11,7 @@ import org.checkerframework.checker.units.qual.K;
  */
 
 /**
- * 缓存移除监听器
+ * 缓存移除监听器：泛型不确定的正确写法，将泛型的确定权利交给上层用户
  */
 public class SelfRemovalListener<K, V> implements RemovalListener<K, V> {
 
