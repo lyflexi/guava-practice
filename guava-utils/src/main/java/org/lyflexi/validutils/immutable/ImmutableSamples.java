@@ -1,4 +1,4 @@
-package org.lyflexi.validutils;
+package org.lyflexi.validutils.immutable;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
