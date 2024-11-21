@@ -1,8 +1,13 @@
 package org.lyflexi.validutils;
 
+import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
+import com.google.common.collect.Maps;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
 
 /**
  * @Description:
@@ -16,7 +21,11 @@ public class StringSamples {
 
     public static void main(String[] args) {
 //        splitByJdk();
-        splitByGuava();
+//        splitByGuava();
+
+        testArrJoiner();
+        testListJoiner();
+        testMapJoiner();
     }
 
 
@@ -54,5 +63,38 @@ public class StringSamples {
          */
     }
 
+
+    /**
+     * \Guava Joiner 可以轻松地将数组或列表中的元素拼接成一个字符串。
+     *
+     */
+    public static void testArrJoiner() {
+        String[] arr = {"3", "2", null, "", "5"};
+        String result = Joiner.on("-").skipNulls().join(arr);
+        System.out.println("arr " + result);
+        result = Joiner.on("-").useForNull("空").join(arr);
+        System.out.println("arr " + result);
+    }
+
+    public static void testListJoiner() {
+        List<String> list = new ArrayList<>();
+        list.add("3");
+        list.add("2");
+        list.add(null);
+        list.add("5");
+        String result = Joiner.on("-").skipNulls().join(list);
+        System.out.println("list " + result);
+        result = Joiner.on("-").useForNull("空").join(list);
+        System.out.println("list " + result);
+    }
+    public static void testMapJoiner() {
+        Map<String, String> tmpMap = Maps.newLinkedHashMap();
+        tmpMap.put("1", "q1");
+        tmpMap.put("5", "q5");
+        tmpMap.put("2", "q3");
+
+        String result = Joiner.on("#").withKeyValueSeparator("=").join(tmpMap);
+        System.out.println(result); // 输出: 1=q1#5=q5#2=q3
+    }
 
 }
